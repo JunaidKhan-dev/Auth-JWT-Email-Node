@@ -3,9 +3,7 @@ const app = express()
 const morgan = require('morgan')
 const usersRouter = require('./routes/usersRoutes')
 const tasksRouter = require('./routes/tasksRoutes')
-if (process.env.NODE_ENV === 'development') {
-  app.use(morgan('dev'))
-}
+
 // global middleware
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
