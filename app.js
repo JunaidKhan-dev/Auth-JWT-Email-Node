@@ -10,13 +10,6 @@ if (process.env.NODE_ENV === 'development') {
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
-// maintenance mood
-app.use((req, res, next) => {
-  console.log(process.env.MAINTENANCE)
-  if (process.env.MAINTENANCE) return res.send('MAINTENANCE Mode ON')
-
-  next()
-})
 // routes
 app.use('/api/v1/users', usersRouter)
 app.use('/api/v1/tasks', tasksRouter)
